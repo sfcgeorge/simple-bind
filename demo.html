@@ -1,0 +1,50 @@
+<html data-sb-demo>
+  <head>
+    <title data-sb-demo-output="title" data-sb-format="%s%t{ - }Simple Bind">Simple Bind</title>
+
+    <style>
+      h1 {
+        min-height: 40px;
+      }
+      h1.green {
+        background: green;
+      }
+      h1.red {
+        background: red;
+      }
+    </style>
+
+    <script src="simple-bind.js"></script>
+  </head>
+  <body>
+    <h1 data-sb-demo-output="title" data-sb-attributes="class id" data-sb-class-format="%t{green}%f{red}"></h1>
+
+    <form action="#">
+      <label>Title:
+        <input type="text" data-sb-demo-input="title" onkeyup="update()">
+      </label>
+      <br>
+      <label>Text:
+        <textarea data-sb-demo-input="text" onkeyup="update()"></textarea>
+      </label>
+    </form>
+
+    <p data-sb-demo-output="text"></p>
+
+    <script>
+      var demo = new SimpleBind('demo');
+      demo.inputData({ text: 'Type to update live!' }); // {} data object for working with
+      console.log( demo.inputData() ); // {} data object for working with
+      console.log( demo.inputNodes() ); // [] nodelist
+      console.log( demo.inputNodes('title') ); // [] node
+      demo.outputData({ title: 'Hello World!' });
+      console.log( demo.outputData() );
+      console.log( demo.outputNodes() );
+      console.log( demo.outputNodes('title') );
+
+      function update() {
+        demo.update();
+      }
+    </script>
+  </body>
+</html>
