@@ -1,5 +1,7 @@
 # simple-bind
 
+A simple JS library for binding input fields to output elements.
+
 I didn't want the bloat of Angular, Ember, React or similar; but I did want some simple binding capabilities:
 
 * Get JSON from an API and insert it into placeholders in the page.
